@@ -83,21 +83,14 @@ public class MainActivity extends AppCompatActivity {
 
             binding.contentMain.contenedor.addView(productoView);
 
-        }
-/*
+            productoView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-        //Crear el evento de click
-        int finalI = i;
-        pisoView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, EditPisoActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(Constantes.PISO , piso);
-                bundle.putSerializable(Constantes.POSICION, finalI);
-                intent.putExtras(bundle);
-                ModificaPisoLauncher.launch(intent);
-            }
-        });*/
+
+                }
+            });
+
+        }
     }
 }

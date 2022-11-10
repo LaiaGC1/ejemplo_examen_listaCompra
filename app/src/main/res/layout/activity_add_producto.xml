@@ -24,7 +24,7 @@
         android:layout_margin="10dp"
         android:ems="10"
         android:hint="Precio"
-        android:inputType="textPersonName" />
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/txtCantidadAddProducto"
@@ -33,7 +33,7 @@
         android:layout_margin="10dp"
         android:ems="10"
         android:hint="Cantidad"
-        android:inputType="textPersonName" />
+        android:inputType="number" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -57,4 +57,5 @@
             android:layout_weight="1"
             android:text="Crear" />
     </LinearLayout>
+
 </LinearLayout>

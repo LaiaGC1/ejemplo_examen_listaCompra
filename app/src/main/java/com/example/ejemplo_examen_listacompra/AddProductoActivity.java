@@ -42,7 +42,6 @@ public class AddProductoActivity extends AppCompatActivity {
                     intent.putExtras(bundle);
                     setResult(RESULT_OK, intent);
                     finish();
-
                 }else{
                     Toast.makeText(AddProductoActivity.this, "FALTAN DATOS", Toast.LENGTH_SHORT).show();
                 }
