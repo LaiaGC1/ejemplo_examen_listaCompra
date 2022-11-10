@@ -34,8 +34,12 @@ public class AddProductoActivity extends AppCompatActivity {
         binding.btnCrearAddProducto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Producto producto;
-                if((producto = crearProducto()) != null){
+                String nombre = binding.txtNombreAddProducto.getText().toString();
+                String cantidad = binding.txtCantidadAddProducto.getText().toString();
+                String precio = binding.txtPrecioAddProducto.getText().toString();
+
+                if(nombre.isEmpty() && cantidad.isEmpty() && precio.isEmpty()){
+                    Producto producto = new Producto(nombre,Integer.parseInt(cantidad),Integer.parseInt(precio));
                     Bundle bundle= new Bundle();
                     bundle.putSerializable("PRODUCTO", producto);
                     Intent intent = new Intent();
@@ -45,18 +49,6 @@ public class AddProductoActivity extends AppCompatActivity {
                 }else{
                     Toast.makeText(AddProductoActivity.this, "FALTAN DATOS", Toast.LENGTH_SHORT).show();
                 }
-            }
-
-            private Producto crearProducto() {
-                if(binding.txtNombreAddProducto.getText().toString().isEmpty() || binding.txtCantidadAddProducto.getText().toString().isEmpty()
-                        || binding.txtPrecioAddProducto.toString().isEmpty())
-                    return null;
-
-                return new Producto(
-                        binding.txtNombreAddProducto.getText().toString(),
-                        Integer.parseInt(binding.txtCantidadAddProducto.getText().toString()),
-                        Integer.parseInt(binding.txtPrecioAddProducto.getText().toString())
-                );
             }
         });
     }
