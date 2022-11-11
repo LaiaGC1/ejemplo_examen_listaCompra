@@ -24,6 +24,7 @@ public class ProductAdapters extends RecyclerView.Adapter<ProductAdapters.Produc
     @Override
     public ProductoVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
+        return null;
     }
 
     @Override

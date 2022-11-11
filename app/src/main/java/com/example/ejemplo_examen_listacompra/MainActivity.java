@@ -20,6 +20,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import com.example.ejemplo_examen_listacompra.databinding.ActivityMainBinding;
 import com.example.ejemplo_examen_listacompra.modelos.Producto;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private ArrayList<Producto> listProductos;
     private ActivityResultLauncher<Intent> AddProductoLauncher;
+    private NumberFormat nf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         listProductos = new ArrayList<>();
         inicializaLaunchers();
+        nf= NumberFormat.getCurrencyInstance();
 
 
 
@@ -94,5 +97,16 @@ public class MainActivity extends AppCompatActivity {
             });
 
         }
+    }
+
+    public void calculaImportes(){
+        int cantidad = 0;
+        float precio = 0;
+        for(Producto p: listProductos){
+            cantidad += p.getPrecio();
+            precio += p.getPrecio() * p.getCantidad();
+        }
+        binding.contentMain.lblCantidadTotal.setText(String.valueOf(cantidad));
+        binding.contentMain.lblImporteTotal.setText(nf.format(precio));
     }
 }

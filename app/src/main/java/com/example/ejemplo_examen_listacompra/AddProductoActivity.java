@@ -38,7 +38,7 @@ public class AddProductoActivity extends AppCompatActivity {
                 String cantidad = binding.txtCantidadAddProducto.getText().toString();
                 String precio = binding.txtPrecioAddProducto.getText().toString();
 
-                if(nombre.isEmpty() && cantidad.isEmpty() && precio.isEmpty()){
+                if(!nombre.isEmpty() && !cantidad.isEmpty() && !precio.isEmpty()){
                     Producto producto = new Producto(nombre,Integer.parseInt(cantidad),Integer.parseInt(precio));
                     Bundle bundle= new Bundle();
                     bundle.putSerializable("PRODUCTO", producto);
